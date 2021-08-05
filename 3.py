@@ -4,7 +4,7 @@
 
 import math
 
-# Функция для определения простоты
+# Функция для определения простоты числа
 def isPrimeFactor(num):
     numSqrt = math.ceil(math.sqrt(num))
     for divider in range(2, numSqrt):
@@ -14,24 +14,27 @@ def isPrimeFactor(num):
 
 mainNumber = 600851475143
 number = math.ceil(math.sqrt(mainNumber))
-largestPrimeFactor = 1 # Наибольший просто делитель
+largestPrimeFactor = 1 # Наибольший простой делитель
 
-# Нахождение половины простых делителей (до корня)
+# Нахождение половины делителей (до корня)
 allDividers = []
 for divider in range(2, number):
-    if mainNumber % divider == 0 and isPrimeFactor(divider):        
+    if mainNumber % divider == 0:
         allDividers.append(divider)
+        
 
 temporaryDividers = allDividers.copy()
 
-# Проверка потенциальной второй половины делителей на простоту (после корня)
+# Нахождение второй половины делителей (после корня)
 for divider in temporaryDividers:
     allDividers.append(int(mainNumber/divider))
+
+#упорядочивание
 allDividers.sort()
 
 # Нахождение максимального простого делителя
 for i in allDividers:
-    if isPrimeFactor(i) and i > largestPrimeFactor:
+    if isPrimeFactor(i):
         largestPrimeFactor = i
 
 print ("Наибольший делитель числа 600851475143 равен:", largestPrimeFactor)
