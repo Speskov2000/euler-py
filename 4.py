@@ -3,18 +3,16 @@
 # Найдите самый большой палиндром, полученный умножением двух трехзначных чисел.
 # ###########################################################################################################
 
+# Функция определяющая является ли число палиндромом
 def isPalindrome(number):
-    number = str(number)
-    firstHalfOfNumb = string(start:center)
-    SecondHalfOfNumb = string(center:end)
-    
-    return True
-    return False
+    originalNumberStr = str(number)
+    reversedNumberStr = originalNumberStr[::-1]
+    return originalNumberStr == reversedNumberStr
 
 
 maxPalindrome = 0
 for i in range(100, 1000):
-    for i in range(100, 1000):
+    for j in range(100, 1000):
         number = i*j
         if isPalindrome(number) and maxPalindrome < number:
             maxPalindrome = number
