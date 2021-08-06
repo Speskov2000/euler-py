@@ -2,22 +2,38 @@
 # Очевидно, что 6-е простое число - 13.
 # Какое число является 10001-м простым числом?
 
-# Массив с простыми числами, на которые будем делить будущие перебираемые числа
+# Массив с простыми числами, на которые будем делить будущие перебираемые числа (Нет смысла перебирать каждое вплоть до корня)
 dividers = [2]
+
+# Порядковый номер простого числа
 indexNumber = 1
+
+# Само число
 number = 3
+
 while True:
-    counter = 0
+    # Проверка было ли число простым
+    status = True
+
+    # Будем делить на числа из dividers, но не больше чем до корня
+    sqrtOfNumber = int(number**0.5)+2
+
     for divider in dividers:
-        if number % divider == 0:            
-            counter += 1
+        if divider > sqrtOfNumber:
             break
-    if counter == 0:
+        if number % divider == 0:            
+            status = False
+            break
+    
+    # Если статус не менялся, значит число простое
+    if status:
         dividers.append(number)
         indexNumber += 1
 
+    # Порядковый номер простого числа
     if indexNumber == 10001:
         break
-    number += 1
+    # Шаг равен 2, т.к. нет смысла рассматривать чётные числа
+    number += 2
 
 print("Простое число под номером 10001 -", number)
