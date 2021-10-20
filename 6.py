@@ -5,15 +5,17 @@
 # Следовательно, разность между суммой квадратов и квадратом суммы первых десяти натуральных чисел составляет 3025 − 385 = 2640.
 # Найдите разность между суммой квадратов и квадратом суммы первых ста натуральных чисел.
 
+
 def getSum():
     sum = 0
-    for naturalNum in range(1,101):
+    for naturalNum in range(1, 101):
         sum += naturalNum
     return sum
 
+
 def getSumOfTheSquares():
     sumOfTheSquares = 0
-    for naturalNum in range(1,101):
+    for naturalNum in range(1, 101):
         sumOfTheSquares += naturalNum**2
     return sumOfTheSquares
 

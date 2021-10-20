@@ -16,15 +16,15 @@ while True:
     status = True
 
     # Будем делить на числа из dividers, но не больше чем до корня
-    sqrtOfNumber = int(number**0.5)+2
+    sqrtOfNumber = int(number**0.5) + 2
 
     for divider in dividers:
         if divider > sqrtOfNumber:
             break
-        if number % divider == 0:            
+        if number % divider == 0:
             status = False
             break
-    
+
     # Если статус не менялся, значит число простое
     if status:
         dividers.append(number)
